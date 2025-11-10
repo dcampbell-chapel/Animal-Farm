@@ -37,6 +37,17 @@
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
             background-color: #FFF5F5; /* Very light pink tint on hover for white cards */
         }
+
+        /* Iframe styling for embedded student pages */
+        .student-iframe {
+            width: 100%;
+            border: none;
+            /* Initial height (will be resized dynamically by script) */
+            min-height: 800px; 
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
     </style>
 </head>
 <body class="min-h-screen p-4 md:p-8">
@@ -56,7 +67,336 @@
                 <!-- Links will be populated by JavaScript --></ul>
         </section>
 
-        <!-- 2. Character Pages (Placeholders) (White Cards) --><!-- Snowball Page --><section id="snowball-page" class="character-page p-6 bg-white rounded-xl shadow-lg">
+        <!-- 2. Character Pages (Placeholders/Embedded) (White Cards) -->
+        
+        <!-- Boxer Page (Embedded Content) --><section id="boxer-page" class="character-page p-0 bg-white rounded-xl shadow-lg overflow-hidden">
+            <!-- Back button placed above the embedded content for visibility --><div class="p-6 bg-white border-b border-gray-100">
+                <button onclick="navigate('home')" class="px-6 py-2 bg-[var(--color-primary)] text-white font-semibold rounded-full hover:bg-red-700 transition duration-150 shadow-md">
+                    ← Back to Character List
+                </button>
+                <p class="mt-4 text-sm text-gray-600">Group: Sofia G, Isabela S, Ryan</p>
+            </div>
+            
+            <iframe id="boxer-iframe" 
+                    srcdoc='
+                    <!DOCTYPE html>
+                    <html lang="en">
+                    <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Character and Context Synthesis – Boxer</title>
+                    <style>
+                      body {
+                        font-family: "Comic Neue", "Segoe UI", sans-serif;
+                        background: #faf9f5;
+                        margin: 0;
+                        padding: 0;
+                        color: #222;
+                      }
+                      header {
+                        background: #ffe066;
+                        text-align: center;
+                        padding: 2rem 1rem;
+                        border-bottom: 4px solid #ffba08;
+                      }
+                      header h1 {
+                        font-size: 2rem;
+                        margin: 0;
+                      }
+                      .container {
+                        max-width: 900px;
+                        margin: 2rem auto;
+                        padding: 1rem;
+                        line-height: 1.6;
+                      }
+                      .sketchnote {
+                        position: relative;
+                        padding: 1.5rem;
+                        margin: 2rem 0;
+                        background: #fff;
+                        border: 3px dashed #ffba08;
+                        border-radius: 20px;
+                        box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+                      }
+                      .arrow {
+                        position: absolute;
+                        width: 80px;
+                        height: 80px;
+                        /* Placeholder for arrow image - keeping original style structure */
+                        /* The URL below points to a sample SVG. It may not render in all sandboxed environments. */
+                        /* background: url("https://upload.wikimedia.org/wikipedia/commons/4/4c/Arrow_curve.svg") center/contain no-repeat; */
+                      }
+                      .traits .arrow {
+                        top: -70px;
+                        left: 50%;
+                        transform: translateX(-50%) rotate(10deg);
+                      }
+                      .historical .arrow {
+                        bottom: -70px;
+                        right: 20%;
+                        transform: rotate(45deg);
+                      }
+                      h2 {
+                        font-size: 1.4rem;
+                        color: #ff7b00;
+                      }
+                      details {
+                        margin-top: 1rem;
+                        cursor: pointer;
+                      }
+                      summary {
+                        font-weight: bold;
+                        font-size: 1.1rem;
+                      }
+                      .note {
+                        font-style: italic;
+                        color: #666;
+                      }
+                      .quote {
+                        font-family: "Georgia", serif;
+                        background: #fff9e6;
+                        border-left: 5px solid #ffba08;
+                        padding: 0.5rem 1rem;
+                        margin: 1rem 0;
+                      }
+                      footer {
+                        text-align: center;
+                        padding: 2rem;
+                        background: #ffec99;
+                        border-top: 4px solid #ffba08;
+                        font-size: 0.9rem;
+                      }
+                      @media (max-width: 600px) {
+                        .arrow { display: none; }
+                      }
+                    </style>
+                    </head>
+                    <body>
+                    
+                    <header>
+                      <h1>🐴 Character & Context SketchNotes: Boxer</h1>
+                      <p class="note">Click on sections to explore how Boxer connects to history and meaning in <em>Animal Farm</em>.</p>
+                    </header>
+                    
+                    <div class="container">
+                    
+                      <section class="sketchnote traits">
+                        <h2>📘 Literary Traits</h2>
+                        <p><strong>Boxer</strong> is defined by his <em>immense strength</em>, <em>loyalty</em>, and <em>simple faith</em> in leadership.</p>
+                        <details>
+                          <summary>See key traits & quotes</summary>
+                          <ul>
+                            <li>Incredible physical strength and diligence.</li>
+                            <li>Blind loyalty and unquestioning faith in the leaders.</li>
+                            <li>Simple-minded, struggles with complex ideas.</li>
+                            <li>Self-sacrificing—dedicated to Animal Farm’s success.</li>
+                          </ul>
+                          <div class="quote">“I will work harder” &nbsp;|&nbsp; “Napoleon is always right.”</div>
+                          <div class="note">→ These mottoes symbolize internalized obedience and exploited hope.</div>
+                        </details>
+                        <div class="arrow"></div>
+                      </section>
+                    
+                      <section class="sketchnote role">
+                        <h2>⚙️ Role in the Story</h2>
+                        <p>Boxer represents <strong>the heart of the revolution</strong>—a symbol of tireless labor sustaining the farm.</p>
+                        <details>
+                          <summary>Expand synthesis</summary>
+                          <p>His devotion fuels the farm’s progress, but his eventual betrayal reveals Orwell’s critique: labor is valued only while it’s useful to those in power. Boxer&#39;s tragic death exposes how the ideals of equality collapse under exploitation.</p>
+                        </details>
+                      </section>
+                    
+                      <section class="sketchnote historical">
+                        <h2>🪓 Historical Parallel</h2>
+                        <p>Boxer allegorically represents the <strong>Proletariat and Peasantry</strong> of Soviet Russia.</p>
+                        <details>
+                          <summary>Explore the allegory</summary>
+                          <p>His relentless work on the windmill mirrors the Soviet people’s sacrifices under Stalin’s Five-Year Plans. The slogan “work harder” echoes state propaganda glorifying labor while concealing brutal exploitation.</p>
+                          <div class="note">↳ When Boxer collapses and is sold, Orwell mirrors Stalin’s betrayal of his most loyal workers.</div>
+                        </details>
+                        <div class="arrow"></div>
+                      </section>
+                    
+                      <section class="sketchnote reflection">
+                        <h2>💭 Big Picture</h2>
+                        <p>Boxer’s story blends <strong>hope, tragedy, and warning</strong>—a reminder that revolutions can devour their own heroes.</p>
+                        <details>
+                          <summary>Click for reflection</summary>
+                          <p>Orwell’s message is timeless: blind loyalty without understanding leads to manipulation. Boxer’s strength built the farm; his faith allowed its corruption.</p>
+                        </details>
+                      </section>
+                    
+                    </div>
+                    
+                    <footer>
+                      ✏️ Designed as a sketch-note web summary of <em>Character and Context Synthesis Report: Boxer</em><br>
+                      Created by a Graphic Designer & Web Developer © 2025
+                    </footer>
+                    
+                    </body>
+                    </html>
+                    '
+                    class="student-iframe"></iframe>
+        </section>
+
+        <!-- Moses & Mollie Page (Embedded Content) --><section id="moses-mollie-page" class="character-page p-0 bg-white rounded-xl shadow-lg overflow-hidden">
+            <!-- Back button placed above the embedded content for visibility --><div class="p-6 bg-white border-b border-gray-100">
+                <button onclick="navigate('home')" class="px-6 py-2 bg-[var(--color-primary)] text-white font-semibold rounded-full hover:bg-red-700 transition duration-150 shadow-md">
+                    ← Back to Character List
+                </button>
+                <p class="mt-4 text-sm text-gray-600">Group: Manuela P, Julia X, Enrico</p>
+            </div>
+            
+            <iframe id="moses-mollie-iframe" 
+                    srcdoc='
+                    <!DOCTYPE html>
+                    <html lang="en">
+                    <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Moses & Mollie – Character and Context Sketch Notes</title>
+                    <style>
+                      body {
+                        /* ADDED: Ensure the body of the iframe takes up all available width */
+                        width: 100%;
+                        font-family: "Comic Sans MS", "Segoe UI", sans-serif;
+                        background: #fff8e7;
+                        color: #333;
+                        margin: 0;
+                        padding: 0;
+                        overflow-x: hidden;
+                      }
+                      header {
+                        text-align: center;
+                        background: #fdd835;
+                        padding: 2em 1em;
+                        font-size: 1.8em;
+                        position: relative;
+                      }
+                      header h1 {
+                        font-family: "Permanent Marker", cursive;
+                        font-size: 2em;
+                      }
+                      section {
+                        padding: 2em;
+                        max-width: 900px;
+                        margin: auto;
+                        position: relative;
+                      }
+                      .note-box {
+                        background: #fff;
+                        border: 3px dashed #444;
+                        border-radius: 15px;
+                        padding: 1.5em;
+                        margin: 2em 0;
+                        box-shadow: 4px 4px 0 #333;
+                      }
+                      .title {
+                        font-family: "Permanent Marker", cursive;
+                        font-size: 1.5em;
+                        color: #d32f2f;
+                      }
+                      .arrow {
+                        text-align: center;
+                        font-size: 2em;
+                        margin: 1em 0;
+                      }
+                      .clickable {
+                        background: #ffe082;
+                        padding: 0.5em 1em;
+                        border-radius: 10px;
+                        cursor: pointer;
+                        font-weight: bold;
+                        display: inline-block;
+                        margin-top: 1em;
+                      }
+                      .hidden {
+                        display: none;
+                        margin-top: 1em;
+                        font-size: 1em;
+                        line-height: 1.5;
+                      }
+                      footer {
+                        background: #fbc02d;
+                        text-align: center;
+                        padding: 1em;
+                        font-size: 0.9em;
+                        font-style: italic;
+                      }
+                      @media (max-width: 600px) {
+                        .note-box {
+                          font-size: 0.95em;
+                        }
+                      }
+                    </style>
+                    <script>
+                      // Function to make sure details can be clicked within the iframe
+                      function toggleInfo(id) {
+                        const el = document.getElementById(id);
+                        el.classList.toggle("hidden");
+                      }
+                    </script>
+                    </head>
+                    <body>
+                    <header>
+                      <h1>🐦 Moses & 🐴 Mollie</h1>
+                      <p>Character & Context Synthesis — Sketchnote Edition</p>
+                    </header>
+
+                    <section>
+                      <div class="note-box">
+                        <div class="title">Moses (The Raven)</div>
+                        <p><b>Key Traits:</b> Storyteller of Sugar Candy Mountain, cynical observer, non-worker, tolerated by the pigs.</p>
+                        <p><b>Symbol:</b> 🕊️ Religion & False Hope</p>
+                        <div class="arrow">⬇️</div>
+                        <div class="clickable" onclick="toggleInfo('moses1')">📜 Literary Role</div>
+                        <div id="moses1" class="hidden">
+                          <p>Moses offers comfort through tales of <b>Sugar Candy Mountain</b>, distracting animals from oppression. The pigs allow his stories because it helps control the others.</p>
+                        </div>
+                        <div class="arrow">⬇️</div>
+                        <div class="clickable" onclick="toggleInfo('moses2')">⚙️ Historical Connection</div>
+                        <div id="moses2" class="hidden">
+                          <p>Moses represents the <b>Russian Orthodox Church</b>. Like Stalin, Napoleon realizes that religion can maintain order and obedience through <b>propaganda</b>.</p>
+                        </div>
+                      </div>
+
+                      <div class="note-box">
+                        <div class="title">Mollie (The Mare)</div>
+                        <p><b>Key Traits:</b> Vain, materialistic, self-interested, resists change.</p>
+                        <p><b>Symbol:</b> 🎀 The Bourgeoisie / Upper-Class Defectors</p>
+                        <div class="arrow">⬇️</div>
+                        <div class="clickable" onclick="toggleInfo('mollie1')">📜 Literary Role</div>
+                        <div id="mollie1" class="hidden">
+                          <p>Mollie loves luxury and refuses the hardships of equality. Her sugar and ribbons show her loyalty to comfort over revolution.</p>
+                        </div>
+                        <div class="arrow">⬇️</div>
+                        <div class="clickable" onclick="toggleInfo('mollie2')">⚙️ Historical Connection</div>
+                        <div id="mollie2" class="hidden">
+                          <p>She mirrors the <b>Bourgeoisie</b> who fled Russia after 1917, unwilling to give up privilege. Her defection represents those who chose comfort over ideology.</p>
+                        </div>
+                      </div>
+
+                      <div class="note-box" style="background:#fff9c4;">
+                        <div class="title">🎯 Allegorical Takeaway</div>
+                        <p>Both characters expose how <b>faith</b> and <b>privilege</b> can weaken revolutionary unity.</p>
+                        <p>👉 Moses distracts with heaven.  
+                        👉 Mollie abandons for luxury.  
+                        Together, they show how control and comfort can defeat idealism.</p>
+                      </div>
+                    </section>
+
+                    <footer>
+                      Sketchnote Webpage by Manuela P & Enrico L — Designed with ❤️ using HTML & CSS.
+                    </footer>
+
+                    </body>
+                    </html>
+                    '
+                    class="student-iframe"></iframe>
+        </section>
+
+
+        <!-- Snowball Page (Placeholder) --><section id="snowball-page" class="character-page p-6 bg-white rounded-xl shadow-lg">
             <h2 class="text-3xl font-extrabold text-[var(--color-primary)] mb-4">Snowball</h2>
             <div id="snowball-content" class="text-gray-700 space-y-4">
                 <!-- Student Content Placeholder --><p><strong>Group:</strong> Sophia F, Caio, Miguel</p>
@@ -73,7 +413,7 @@
             </button>
         </section>
 
-        <!-- Napoleon Page --><section id="napoleon-page" class="character-page p-6 bg-white rounded-xl shadow-lg">
+        <!-- Napoleon Page (Placeholder) --><section id="napoleon-page" class="character-page p-6 bg-white rounded-xl shadow-lg">
             <h2 class="text-3xl font-extrabold text-[var(--color-primary)] mb-4">Napoleon</h2>
             <div id="napoleon-content" class="text-gray-700 space-y-4">
                 <p><strong>Group:</strong> Sophia O, Rafaella, Geraldo, Leo</p>
@@ -90,7 +430,7 @@
             </button>
         </section>
 
-        <!-- Squealer Page --><section id="squealer-page" class="character-page p-6 bg-white rounded-xl shadow-lg">
+        <!-- Squealer Page (Placeholder) --><section id="squealer-page" class="character-page p-6 bg-white rounded-xl shadow-lg">
             <h2 class="text-3xl font-extrabold text-[var(--color-primary)] mb-4">Squealer</h2>
             <div id="squealer-content" class="text-gray-700 space-y-4">
                 <p><strong>Group:</strong> MaLu, Isabella Y, Gui</p>
@@ -107,41 +447,7 @@
             </button>
         </section>
 
-        <!-- Boxer Page --><section id="boxer-page" class="character-page p-6 bg-white rounded-xl shadow-lg">
-            <h2 class="text-3xl font-extrabold text-[var(--color-primary)] mb-4">Boxer</h2>
-            <div id="boxer-content" class="text-gray-700 space-y-4">
-                <p><strong>Group:</strong> Sofia G, Isabela S, Ryan</p>
-                <p class="text-xl italic p-4 bg-gray-50 border-l-4 border-[var(--color-secondary)]">
-                    This is the dedicated space for the **Boxer** group's project.
-                </p>
-                <div class="mt-6 p-4 bg-pink-100 border border-red-300 rounded">
-                    <h3 class="font-semibold text-red-700">Mock Content Template:</h3>
-                    <p>Boxer is the dedicated, loyal, and incredibly strong working class. His slogans, "I will work harder" and "Napoleon is always right," highlight his noble yet naive devotion to the cause, which is ultimately betrayed by the pig leadership when he is no longer useful.</p>
-                </div>
-            </div>
-            <!-- Back button uses Primary Red --><button onclick="navigate('home')" class="mt-8 px-6 py-2 bg-[var(--color-primary)] text-white font-semibold rounded-full hover:bg-red-700 transition duration-150 shadow-md">
-                ← Back to Character List
-            </button>
-        </section>
-        
-        <!-- Moses & Mollie Page --><section id="moses-mollie-page" class="character-page p-6 bg-white rounded-xl shadow-lg">
-            <h2 class="text-3xl font-extrabold text-[var(--color-primary)] mb-4">Moses & Mollie</h2>
-            <div id="moses-mollie-content" class="text-gray-700 space-y-4">
-                <p><strong>Group:</strong> Manuela P, Julia X, Enrico</p>
-                <p class="text-xl italic p-4 bg-gray-50 border-l-4 border-[var(--color-secondary)]">
-                    This is the dedicated space for the **Moses & Mollie** group's project.
-                </p>
-                <div class="mt-6 p-4 bg-pink-100 border border-red-300 rounded">
-                    <h3 class="font-semibold text-red-700">Mock Content Template:</h3>
-                    <p>Moses, the raven, symbolizes religion ("Sugarcandy Mountain"), used to distract the working class from their hardships. Mollie, the white mare, represents the frivolous upper class who quickly flee the revolution because they prioritize luxuries over ideology.</p>
-                </div>
-            </div>
-            <!-- Back button uses Primary Red --><button onclick="navigate('home')" class="mt-8 px-6 py-2 bg-[var(--color-primary)] text-white font-semibold rounded-full hover:bg-red-700 transition duration-150 shadow-md">
-                ← Back to Character List
-            </button>
-        </section>
-
-        <!-- Clover & Benjamin Page --><section id="clover-benjamin-page" class="character-page p-6 bg-white rounded-xl shadow-lg">
+        <!-- Clover & Benjamin Page (Placeholder) --><section id="clover-benjamin-page" class="character-page p-6 bg-white rounded-xl shadow-lg">
             <h2 class="text-3xl font-extrabold text-[var(--color-primary)] mb-4">Clover & Benjamin</h2>
             <div id="clover-benjamin-content" class="text-gray-700 space-y-4">
                 <p><strong>Group:</strong> Sophia T, Samantha, Joca</p>
@@ -158,7 +464,7 @@
             </button>
         </section>
 
-        <!-- The Humans Page --><section id="the-humans-page" class="character-page p-6 bg-white rounded-xl shadow-lg">
+        <!-- The Humans Page (Placeholder) --><section id="the-humans-page" class="character-page p-6 bg-white rounded-xl shadow-lg">
             <h2 class="text-3xl font-extrabold text-[var(--color-primary)] mb-4">The Humans</h2>
             <div id="the-humans-content" class="text-gray-700 space-y-4">
                 <p><strong>Group:</strong> Manuela R, Mirela, Gaga, Peçanha</p>
@@ -214,14 +520,20 @@
         function navigate(pageId) {
             const homePage = document.getElementById('home-page');
             const characterPages = document.querySelectorAll('.character-page');
+            const boxerIframe = document.getElementById('boxer-iframe');
+            const mosesMollieIframe = document.getElementById('moses-mollie-iframe');
 
-            // Hide all pages first
+
+            // 1. Hide all pages and iframes first
             homePage.style.display = 'none';
             characterPages.forEach(page => {
                 page.style.display = 'none';
             });
+            if (boxerIframe) boxerIframe.style.display = 'none';
+            if (mosesMollieIframe) mosesMollieIframe.style.display = 'none';
 
-            // Show the requested page
+
+            // 2. Show the requested page
             if (pageId === 'home') {
                 homePage.style.display = 'block';
                 // Scroll to the top of the container
@@ -230,8 +542,24 @@
                 const targetPage = document.getElementById(pageId + '-page');
                 if (targetPage) {
                     targetPage.style.display = 'block';
-                    // Scroll to the top of the container
-                    document.getElementById('app-container').scrollIntoView({ behavior: 'smooth' });
+
+                    let activeIframe;
+                    if (pageId === 'boxer') {
+                        activeIframe = boxerIframe;
+                    } else if (pageId === 'moses-mollie') {
+                        activeIframe = mosesMollieIframe;
+                    }
+                    
+                    if (activeIframe) {
+                        activeIframe.style.display = 'block';
+                        // Use a slight delay to ensure the DOM has rendered the iframe container
+                        setTimeout(() => {
+                            document.getElementById('app-container').scrollIntoView({ behavior: 'smooth' });
+                        }, 50);
+                    } else {
+                        // For static (placeholder) pages, scroll immediately
+                        document.getElementById('app-container').scrollIntoView({ behavior: 'smooth' });
+                    }
                 }
             }
         }
