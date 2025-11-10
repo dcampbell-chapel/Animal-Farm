@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animal Farm Character Development</title>
+    <!-- Load Tailwind CSS --><script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles to set Inter as the primary font and define theme colors (Monochromatic Red Motif) */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        
+        :root {
+            --color-primary: #B30000; /* Deep Red (Headers, Buttons, Strong Text) */
+            --color-secondary: #CC0000; /* Slightly deeper Red (Accents, Borders) */
+            --color-background: #FFCCCC; /* Light Red/Pink page background */
+            --color-text: #1e1e1e; /* Dark text for readability on light background */
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-background);
+            color: var(--color-text); /* Ensure body text is dark on light background */
+        }
+
+        /* Hide the character pages by default */
+        .character-page {
+            display: none;
+        }
+
+        /* Styling for the list items */
+        .character-link {
+            transition: all 0.2s;
+        }
+        /* Hover state provides a subtle background change for visual feedback on white card */
+        .character-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
+            background-color: #FFF5F5; /* Very light pink tint on hover for white cards */
+        }
+    </style>
+</head>
+<body class="min-h-screen p-4 md:p-8">
+
+    <div id="app-container" class="max-w-4xl mx-auto">
+        <!-- Main Header (White Card) --><header class="text-center mb-10 p-6 bg-white rounded-xl shadow-lg border-b-4 border-[var(--color-secondary)]">
+            <h1 class="text-3xl md:text-5xl font-extrabold text-[var(--color-primary)] tracking-tight">
+                Animal Farm Character Development
+            </h1>
+            <p class="mt-2 text-lg text-gray-600">A Student Project Portfolio: Exploring Character Development</p>
+        </header>
+
+        <!-- 1. Home Page View (White Card) --><section id="home-page" class="p-6 bg-white rounded-xl shadow-lg">
+            <h2 class="text-2xl font-bold mb-6 text-[var(--color-primary)] border-b pb-2 border-gray-200">Character Group Pages</h2>
+            
+            <ul id="character-list" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <!-- Links will be populated by JavaScript --></ul>
+        </section>
+
+        <!-- 2. Character Pages (Placeholders) (White Cards) --><!-- Snowball Page --><section id="snowball-page" class="character-page p-6 bg-white rounded-xl shadow-lg">
+            <h2 class="text-3xl font-extrabold text-[var(--color-primary)] mb-4">Snowball</h2>
+            <div id="snowball-content" class="text-gray-700 space-y-4">
+                <!-- Student Content Placeholder --><p><strong>Group:</strong> Sophia F, Caio, Miguel</p>
+                <p class="text-xl italic p-4 bg-gray-50 border-l-4 border-[var(--color-secondary)]">
+                    This is the dedicated space for the **Snowball** group's project. When the final pages are complete, this section will be replaced with their HTML content.
+                </p>
+                <div class="mt-6 p-4 bg-pink-100 border border-red-300 rounded">
+                    <h3 class="font-semibold text-red-700">Mock Content Template:</h3>
+                    <p>Snowball represents the idealistic but ultimately exiled intellectual, often compared to Leon Trotsky. His focus on expanding literacy and planning the windmill demonstrated a genuine commitment to improving life on the farm, a vision tragically undermined by Napoleon's opportunism.</p>
+                </div>
+            </div>
+            <!-- Back button uses Primary Red --><button onclick="navigate('home')" class="mt-8 px-6 py-2 bg-[var(--color-primary)] text-white font-semibold rounded-full hover:bg-red-700 transition duration-150 shadow-md">
+                ← Back to Character List
+            </button>
+        </section>
+
+        <!-- Napoleon Page --><section id="napoleon-page" class="character-page p-6 bg-white rounded-xl shadow-lg">
+            <h2 class="text-3xl font-extrabold text-[var(--color-primary)] mb-4">Napoleon</h2>
+            <div id="napoleon-content" class="text-gray-700 space-y-4">
+                <p><strong>Group:</strong> Sophia O, Rafaella, Geraldo, Leo</p>
+                <p class="text-xl italic p-4 bg-gray-50 border-l-4 border-[var(--color-secondary)]">
+                    This is the dedicated space for the **Napoleon** group's project.
+                </p>
+                <div class="mt-6 p-4 bg-pink-100 border border-red-300 rounded">
+                    <h3 class="font-semibold text-red-700">Mock Content Template:</h3>
+                    <p>Napoleon embodies the ruthless, totalitarian dictator, mirroring Joseph Stalin. His ascent is marked by manipulation, reliance on the brute force of the dogs, and the gradual erosion of the initial revolutionary principles. He prioritizes personal power over the welfare of the animals.</p>
+                </div>
+            </div>
+            <!-- Back button uses Primary Red --><button onclick="navigate('home')" class="mt-8 px-6 py-2 bg-[var(--color-primary)] text-white font-semibold rounded-full hover:bg-red-700 transition duration-150 shadow-md">
+                ← Back to Character List
+            </button>
+        </section>
+
+        <!-- Squealer Page --><section id="squealer-page" class="character-page p-6 bg-white rounded-xl shadow-lg">
+            <h2 class="text-3xl font-extrabold text-[var(--color-primary)] mb-4">Squealer</h2>
+            <div id="squealer-content" class="text-gray-700 space-y-4">
+                <p><strong>Group:</strong> MaLu, Isabella Y, Gui</p>
+                <p class="text-xl italic p-4 bg-gray-50 border-l-4 border-[var(--color-secondary)]">
+                    This is the dedicated space for the **Squealer** group's project.
+                </p>
+                <div class="mt-6 p-4 bg-pink-100 border border-red-300 rounded">
+                    <h3 class="font-semibold text-red-700">Mock Content Template:</h3>
+                    <p>Squealer is the master propagandist, using convoluted language, statistics, and fear tactics to justify Napoleon's every action. He represents the state-controlled media and propaganda machine that keeps the populace compliant and misinformed.</p>
+                </div>
+            </div>
+            <!-- Back button uses Primary Red --><button onclick="navigate('home')" class="mt-8 px-6 py-2 bg-[var(--color-primary)] text-white font-semibold rounded-full hover:bg-red-700 transition duration-150 shadow-md">
+                ← Back to Character List
+            </button>
+        </section>
+
+        <!-- Boxer Page --><section id="boxer-page" class="character-page p-6 bg-white rounded-xl shadow-lg">
+            <h2 class="text-3xl font-extrabold text-[var(--color-primary)] mb-4">Boxer</h2>
+            <div id="boxer-content" class="text-gray-700 space-y-4">
+                <p><strong>Group:</strong> Sofia G, Isabela S, Ryan</p>
+                <p class="text-xl italic p-4 bg-gray-50 border-l-4 border-[var(--color-secondary)]">
+                    This is the dedicated space for the **Boxer** group's project.
+                </p>
+                <div class="mt-6 p-4 bg-pink-100 border border-red-300 rounded">
+                    <h3 class="font-semibold text-red-700">Mock Content Template:</h3>
+                    <p>Boxer is the dedicated, loyal, and incredibly strong working class. His slogans, "I will work harder" and "Napoleon is always right," highlight his noble yet naive devotion to the cause, which is ultimately betrayed by the pig leadership when he is no longer useful.</p>
+                </div>
+            </div>
+            <!-- Back button uses Primary Red --><button onclick="navigate('home')" class="mt-8 px-6 py-2 bg-[var(--color-primary)] text-white font-semibold rounded-full hover:bg-red-700 transition duration-150 shadow-md">
+                ← Back to Character List
+            </button>
+        </section>
+        
+        <!-- Moses & Mollie Page --><section id="moses-mollie-page" class="character-page p-6 bg-white rounded-xl shadow-lg">
+            <h2 class="text-3xl font-extrabold text-[var(--color-primary)] mb-4">Moses & Mollie</h2>
+            <div id="moses-mollie-content" class="text-gray-700 space-y-4">
+                <p><strong>Group:</strong> Manuela P, Julia X, Enrico</p>
+                <p class="text-xl italic p-4 bg-gray-50 border-l-4 border-[var(--color-secondary)]">
+                    This is the dedicated space for the **Moses & Mollie** group's project.
+                </p>
+                <div class="mt-6 p-4 bg-pink-100 border border-red-300 rounded">
+                    <h3 class="font-semibold text-red-700">Mock Content Template:</h3>
+                    <p>Moses, the raven, symbolizes religion ("Sugarcandy Mountain"), used to distract the working class from their hardships. Mollie, the white mare, represents the frivolous upper class who quickly flee the revolution because they prioritize luxuries over ideology.</p>
+                </div>
+            </div>
+            <!-- Back button uses Primary Red --><button onclick="navigate('home')" class="mt-8 px-6 py-2 bg-[var(--color-primary)] text-white font-semibold rounded-full hover:bg-red-700 transition duration-150 shadow-md">
+                ← Back to Character List
+            </button>
+        </section>
+
+        <!-- Clover & Benjamin Page --><section id="clover-benjamin-page" class="character-page p-6 bg-white rounded-xl shadow-lg">
+            <h2 class="text-3xl font-extrabold text-[var(--color-primary)] mb-4">Clover & Benjamin</h2>
+            <div id="clover-benjamin-content" class="text-gray-700 space-y-4">
+                <p><strong>Group:</strong> Sophia T, Samantha, Joca</p>
+                <p class="text-xl italic p-4 bg-gray-50 border-l-4 border-[var(--color-secondary)]">
+                    This is the dedicated space for the **Clover & Benjamin** group's project.
+                </p>
+                <div class="mt-6 p-4 bg-pink-100 border border-red-300 rounded">
+                    <h3 class="font-semibold text-red-700">Mock Content Template:</h3>
+                    <p>Clover represents the maternal, questioning part of the working class who suspects the pigs are breaking the Commandments but lacks the intellectual capacity to act. Benjamin, the cynical donkey, represents the intelligentsia who understand the truth but refuse to intervene, believing revolution will always fail.</p>
+                </div>
+            </div>
+            <!-- Back button uses Primary Red --><button onclick="navigate('home')" class="mt-8 px-6 py-2 bg-[var(--color-primary)] text-white font-semibold rounded-full hover:bg-red-700 transition duration-150 shadow-md">
+                ← Back to Character List
+            </button>
+        </section>
+
+        <!-- The Humans Page --><section id="the-humans-page" class="character-page p-6 bg-white rounded-xl shadow-lg">
+            <h2 class="text-3xl font-extrabold text-[var(--color-primary)] mb-4">The Humans</h2>
+            <div id="the-humans-content" class="text-gray-700 space-y-4">
+                <p><strong>Group:</strong> Manuela R, Mirela, Gaga, Peçanha</p>
+                <p class="text-xl italic p-4 bg-gray-50 border-l-4 border-[var(--color-secondary)]">
+                    This is the dedicated space for **The Humans** group's project.
+                </p>
+                <div class="mt-6 p-4 bg-pink-100 border border-red-300 rounded">
+                    <h3 class="font-semibold text-red-700">Mock Content Template:</h3>
+                    <p>The humans—Mr. Jones, Mr. Pilkington, and Mr. Frederick—represent the decadent Tsar Nicholas II and the capitalist Western powers. They initially fear the revolution but ultimately find ways to exploit the animals, culminating in the chilling final scene where the pigs become indistinguishable from their human counterparts.</p>
+                </div>
+            </div>
+            <!-- Back button uses Primary Red --><button onclick="navigate('home')" class="mt-8 px-6 py-2 bg-[var(--color-primary)] text-white font-semibold rounded-full hover:bg-red-700 transition duration-150 shadow-md">
+                ← Back to Character List
+            </button>
+        </section>
+
+    </div>
+
+    <script>
+        // Data structure for the characters and their groups
+        const characterData = [
+            { id: 'snowball', name: 'Snowball', group: 'Sophia F, Caio, Miguel' },
+            { id: 'napoleon', name: 'Napoleon', group: 'Sophia O, Rafaella, Geraldo, Leo' },
+            { id: 'squealer', name: 'Squealer', group: 'MaLu, Isabella Y, Gui' },
+            { id: 'boxer', name: 'Boxer', group: 'Sofia G, Isabela S, Ryan' },
+            { id: 'moses-mollie', name: 'Moses & Mollie', group: 'Manuela P, Julia X, Enrico' },
+            { id: 'clover-benjamin', name: 'Clover & Benjamin', group: 'Sophia T, Samantha, Joca' },
+            { id: 'the-humans', name: 'The Humans', group: 'Manuela R, Mirela, Gaga, Peçanha' }
+        ];
+
+        // Function to dynamically create the list on the home page
+        function initializeHomePage() {
+            const list = document.getElementById('character-list');
+            list.innerHTML = ''; // Clear existing list items
+            
+            characterData.forEach(char => {
+                const li = document.createElement('li');
+                const displayGroup = char.group;
+
+                li.innerHTML = `
+                    <button onclick="navigate('${char.id}')" 
+                            class="character-link w-full p-4 text-left bg-white border border-gray-200 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] transition duration-150 ease-in-out">
+                        <span class="text-xl font-bold text-[var(--color-primary)] block">${char.name}</span>
+                        <span class="text-sm text-gray-500 block mt-1">Group: ${displayGroup}</span>
+                        <span class="text-xs text-[var(--color-primary)] mt-2 inline-block font-medium">Click to View Page →</span>
+                    </button>
+                `;
+                list.appendChild(li);
+            });
+        }
+
+        // Navigation function to switch between the home page and character pages
+        function navigate(pageId) {
+            const homePage = document.getElementById('home-page');
+            const characterPages = document.querySelectorAll('.character-page');
+
+            // Hide all pages first
+            homePage.style.display = 'none';
+            characterPages.forEach(page => {
+                page.style.display = 'none';
+            });
+
+            // Show the requested page
+            if (pageId === 'home') {
+                homePage.style.display = 'block';
+                // Scroll to the top of the container
+                document.getElementById('app-container').scrollIntoView({ behavior: 'smooth' });
+            } else {
+                const targetPage = document.getElementById(pageId + '-page');
+                if (targetPage) {
+                    targetPage.style.display = 'block';
+                    // Scroll to the top of the container
+                    document.getElementById('app-container').scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        }
+
+        // Initialize the home page list and set the initial view
+        window.onload = () => {
+            initializeHomePage();
+            navigate('home'); // Ensure the home page is visible on load
+        };
+    </script>
+</body>
+</html>
