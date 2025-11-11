@@ -26,15 +26,8 @@
   </script>
 
   <style>
-    body, html {
-      height: 100%;
-      margin: 0;
-    }
-    iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
+    body, html { height: 100%; margin: 0; }
+    iframe { width: 100%; height: 100%; border: none; }
   </style>
 </head>
 
@@ -47,26 +40,108 @@
       <p class="text-xs text-red-200 mt-1">Character & Context Synthesis</p>
     </header>
 
-    <ul class="flex-1 p-4 space-y-2 overflow-y-auto">
-      <li><a href="overview.html" target="content-frame" class="block py-3 px-4 rounded-lg text-lg font-medium text-red-100 hover:bg-primary-red hover:text-white transition">🏠 Overview</a></li>
-      <li><a href="pages/napoleon.html" target="content-frame" class="block py-3 px-4 rounded-lg text-lg font-medium text-red-100 hover:bg-primary-red hover:text-white transition">🐽 Napoleon</a></li>
-      <li><a href="pages/snowball.html" target="content-frame" class="block py-3 px-4 rounded-lg text-lg font-medium text-red-100 hover:bg-primary-red hover:text-white transition">⚪ Snowball</a></li>
-      <li><a href="pages/squealer.html" target="content-frame" class="block py-3 px-4 rounded-lg text-lg font-medium text-red-100 hover:bg-primary-red hover:text-white transition">🐷 Squealer</a></li>
-      <li><a href="pages/boxer.html" target="content-frame" class="block py-3 px-4 rounded-lg text-lg font-medium text-red-100 hover:bg-primary-red hover:text-white transition">🐴 Boxer</a></li>
-      <li><a href="pages/benjamin-clover.html" target="content-frame" class="block py-3 px-4 rounded-lg text-lg font-medium text-red-100 hover:bg-primary-red hover:text-white transition">🐐 Benjamin & Clover</a></li>
-      <li><a href="pages/humans.html" target="content-frame" class="block py-3 px-4 rounded-lg text-lg font-medium text-red-100 hover:bg-primary-red hover:text-white transition">👤 The Humans</a></li>
-      <li><a href="pages/mollie-moses.html" target="content-frame" class="block py-3 px-4 rounded-lg text-lg font-medium text-red-100 hover:bg-primary-red hover:text-white transition">🎀 Mollie & Moses</a></li>
+    <ul id="sidebar-links" class="flex-1 p-4 space-y-2 overflow-y-auto">
+      <li>
+        <a href="overview.html" target="content-frame"
+           class="block py-3 px-4 rounded-lg text-lg font-medium text-red-100 hover:bg-primary-red hover:text-white transition">
+          🏠 Overview
+        </a>
+      </li>
+      <li>
+        <a href="pages/napoleon.html" target="content-frame"
+           class="block py-3 px-4 rounded-lg text-lg font-medium text-red-100 hover:bg-primary-red hover:text-white transition">
+          🐽 Napoleon
+        </a>
+      </li>
+      <li>
+        <a href="pages/snowball.html" target="content-frame"
+           class="block py-3 px-4 rounded-lg text-lg font-medium text-red-100 hover:bg-primary-red hover:text-white transition">
+          ⚪ Snowball
+        </a>
+      </li>
+      <li>
+        <a href="pages/squealer.html" target="content-frame"
+           class="block py-3 px-4 rounded-lg text-lg font-medium text-red-100 hover:bg-primary-red hover:text-white transition">
+          🐷 Squealer
+        </a>
+      </li>
+      <li>
+        <a href="pages/boxer.html" target="content-frame"
+           class="block py-3 px-4 rounded-lg text-lg font-medium text-red-100 hover:bg-primary-red hover:text-white transition">
+          🐴 Boxer
+        </a>
+      </li>
+      <li>
+        <a href="pages/benjamin-clover.html" target="content-frame"
+           class="block py-3 px-4 rounded-lg text-lg font-medium text-red-100 hover:bg-primary-red hover:text-white transition">
+          🐐 Benjamin & Clover
+        </a>
+      </li>
+      <li>
+        <a href="pages/humans.html" target="content-frame"
+           class="block py-3 px-4 rounded-lg text-lg font-medium text-red-100 hover:bg-primary-red hover:text-white transition">
+          👤 The Humans
+        </a>
+      </li>
+      <li>
+        <a href="pages/mollie-moses.html" target="content-frame"
+           class="block py-3 px-4 rounded-lg text-lg font-medium text-red-100 hover:bg-primary-red hover:text-white transition">
+          🎀 Mollie & Moses
+        </a>
+      </li>
     </ul>
 
     <footer class="p-4 text-xs text-red-400 border-t border-[#a00000] text-center">
-      Project Structure v3.1
+      Project Structure v3.2
     </footer>
   </nav>
 
   <!-- Content area -->
   <main class="flex-1 bg-page-bg">
-    <iframe name="content-frame" src="pages/napoleon.html"></iframe>
+    <iframe name="content-frame" id="content-frame" src="overview.html"></iframe>
   </main>
+
+  <!-- Script: Active link highlighting -->
+  <script>
+    const sidebarLinks = document.querySelectorAll('#sidebar-links a');
+    const iframe = document.getElementById('content-frame');
+
+    // Function to highlight the active link
+    function setActiveLink(href) {
+      sidebarLinks.forEach(link => {
+        if (link.getAttribute('href') === href) {
+          link.classList.add('bg-accent-red', 'text-white', 'shadow-md');
+          link.classList.remove('text-red-100');
+        } else {
+          link.classList.remove('bg-accent-red', 'text-white', 'shadow-md');
+          link.classList.add('text-red-100');
+        }
+      });
+    }
+
+    // Update active link when clicked
+    sidebarLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        const href = link.getAttribute('href');
+        setActiveLink(href);
+      });
+    });
+
+    // Detect when iframe changes (for direct link loads or navigation)
+    iframe.addEventListener('load', () => {
+      const src = iframe.contentWindow.location.pathname.split('/').pop();
+      // Match only file names (handles overview.html or pages/...)
+      sidebarLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href.endsWith(src)) {
+          setActiveLink(href);
+        }
+      });
+    });
+
+    // Set initial active link (overview)
+    setActiveLink('overview.html');
+  </script>
 
 </body>
 </html>
