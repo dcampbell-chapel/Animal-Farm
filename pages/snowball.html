@@ -1,1 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Snowball: Character & Context Synthesis</title>
+<style>
+  body {
+    font-family: "Comic Sans MS", "Segoe UI", sans-serif;
+    background: #fffdf5;
+    margin: 0;
+    padding: 0;
+    color: #333;
+  }
 
+  header {
+    background: #f6d365;
+    background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+    color: #222;
+    text-align: center;
+    padding: 2rem 1rem;
+    position: relative;
+  }
+
+  header h1 {
+    font-size: 2.2rem;
+    margin: 0;
+  }
+
+  header p {
+    margin: 0.5rem 0 0;
+    font-style: italic;
+  }
+
+  section {
+    max-width: 850px;
+    margin: 2rem auto;
+    padding: 1rem 1.5rem;
+    background: #fff;
+    border-radius: 1rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    position: relative;
+  }
+
+  h2 {
+    color: #ff7a00;
+    text-transform: uppercase;
+    border-bottom: 2px dashed #ffd580;
+    display: inline-block;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    line-height: 1.6;
+  }
+
+  .trait-list {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .trait-list li::before {
+    content: "🟠 ";
+  }
+
+  .arrow {
+    position: absolute;
+    font-size: 2rem;
+    transform: rotate(15deg);
+    opacity: 0.5;
+  }
+
+  .arrow1 { top: 30%; left: -30px; }
+  .arrow2 { top: 50%; right: -25px; transform: rotate(-25deg); }
+
+  details {
+    background: #fef4e8;
+    border: 2px dashed #f5b041;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  details:hover {
+    background: #ffeacb;
+  }
+
+  summary {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #d35400;
+    outline: none;
+  }
+
+  .sketchnote {
+    text-align: center;
+    font-size: 1.2rem;
+    margin: 1.5rem 0;
+  }
+
+  .sketchnote span {
+    display: inline-block;
+    margin: 0.5rem;
+  }
+
+  footer {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #777;
+    margin: 3rem 0 1rem;
+  }
+
+  @media (max-width: 600px) {
+    header h1 { font-size: 1.7rem; }
+    section { margin: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🐷 Snowball: Character & Context Synthesis</h1>
+  <p>A Sketch-Note Inspired Overview</p>
+</header>
+
+<section id="literary">
+  <h2>I. Literary Data</h2>
+  <ul class="trait-list">
+    <li>Intelligent, passionate, eloquent</li>
+    <li>Brilliant military strategist — led the <em>Battle of the Cowshed</em></li>
+    <li>Idealistic revolutionary with noble aims</li>
+  </ul>
+  <p><strong>Quote:</strong> “He hurled his fifteen stone upon Boxer’s flank.”</p>
+  <div class="arrow arrow1">➡️</div>
+</section>
+
+<section id="historical">
+  <h2>II. Historical Context</h2>
+  <p><strong>Historical Parallel:</strong> Leon Trotsky 🕊️</p>
+  <p><strong>Concept:</strong> <em>“Systematic dissemination of foulest journalistic fabrication.”</em> – Trotsky, 1931 Letter to Pravda</p>
+  <div class="sketchnote">
+    <span>📖 Revolution → 🐖 Animal Farm</span><br>
+    <span>Trotsky ⇄ Snowball</span><br>
+    <span>Exile 🚫 → Scapegoat 🐾</span>
+  </div>
+  <div class="arrow arrow2">⬅️</div>
+</section>
+
+<section id="significance">
+  <h2>III. Character Significance</h2>
+  <p>Snowball symbolizes the <strong>idealistic phase of the revolution</strong> — a visionary who truly sought progress. His <em>exile</em> marks the moment when hope is replaced by tyranny, as Napoleon consolidates control.</p>
+
+  <details>
+    <summary>📚 Learn More: Snowball’s Role in the Story</summary>
+    <p>Snowball’s leadership at the Battle of the Cowshed demonstrates his courage and intellect. Later, his dream of the windmill reflects the belief in technological progress and education for all animals — a utopian vision ultimately twisted by Napoleon’s propaganda.</p>
+  </details>
+
+  <details>
+    <summary>🇷🇺 Allegorical Mapping: Trotsky Connection</summary>
+    <p>Snowball = Trotsky: both intellectuals, both exiled, both victims of political slander.  
+    Napoleon = Stalin: manipulative, power-driven, rewriting history to erase rivals.  
+    Squealer = Pravda: spreading propaganda and lies to maintain control.</p>
+  </details>
+</section>
+
+<section id="timeline">
+  <h2>IV. Timeline Sketch 🕒</h2>
+  <div class="sketchnote">
+    <span>✨ Hope → 💡 Plans (Windmill) → ⚔️ Victory → 🚷 Exile → 📜 Slander</span>
+  </div>
+</section>
+
+<footer>
+  <p>Designed as a Sketchnote Summary by GPT-5 ✏️ | Inspired by Orwell’s <em>Animal Farm</em></p>
+</footer>
+
+</body>
+</html>
