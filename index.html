@@ -89,6 +89,14 @@
           🎀 Mollie & Moses
         </a>
       </li>
+
+      <!-- ⭐ NEW QUIZ LINK -->
+      <li>
+        <a href="pages/Test%20Your%20Knowledge.html" target="content-frame"
+           class="block py-3 px-4 rounded-lg text-lg font-medium text-red-100 hover:bg-primary-red hover:text-white transition">
+          🧠 Test Your Knowledge
+        </a>
+      </li>
     </ul>
 
     <footer class="p-4 text-xs text-red-400 border-t border-[#a00000] text-center">
@@ -106,20 +114,16 @@
     const sidebarLinks = document.querySelectorAll('#sidebar-links a');
     const iframe = document.getElementById('content-frame');
 
-    // Function to highlight the active link
     function setActiveLink(href) {
       sidebarLinks.forEach(link => {
         if (link.getAttribute('href') === href) {
           link.classList.add('bg-accent-red', 'text-white', 'shadow-md');
-          link.classList.remove('text-red-100');
         } else {
           link.classList.remove('bg-accent-red', 'text-white', 'shadow-md');
-          link.classList.add('text-red-100');
         }
       });
     }
 
-    // Update active link when clicked
     sidebarLinks.forEach(link => {
       link.addEventListener('click', () => {
         const href = link.getAttribute('href');
@@ -127,10 +131,8 @@
       });
     });
 
-    // Detect when iframe changes (for direct link loads or navigation)
     iframe.addEventListener('load', () => {
       const src = iframe.contentWindow.location.pathname.split('/').pop();
-      // Match only file names (handles overview.html or pages/...)
       sidebarLinks.forEach(link => {
         const href = link.getAttribute('href');
         if (href.endsWith(src)) {
@@ -139,7 +141,6 @@
       });
     });
 
-    // Set initial active link (overview)
     setActiveLink('overview.html');
   </script>
 
